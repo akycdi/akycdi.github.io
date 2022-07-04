@@ -1,6 +1,7 @@
 {
 	"short_name": "thefarmerson",
 	"name": "PWA",
+	"start_url": "/",
 	"icons": [
 		{
 			"src": "path/to/regular_icon.png",
@@ -26,7 +27,6 @@
 		}
 	],
 	"purpose": "any",
-	"start_url": "./index.html",
 	"display": "standalone",
 	"theme_color": "#000000",
 	"background_color": "#ffffff"
