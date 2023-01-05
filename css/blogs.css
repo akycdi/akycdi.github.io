@@ -1,0 +1,31 @@
+h1 {
+  text-align: center;
+}
+
+.w-block {
+  display: block;
+  max-width: 550px;
+  margin: 5rem auto;
+  line-height: 1.5rem;
+}
+.w-block .blog-feed {
+  list-style-type: none !important;
+}
+.w-block .blog-feed li a {
+  text-decoration: none;
+  transition: all 250ms;
+}
+.w-block .blog-feed li a:hover {
+  color: #2563eb;
+}
+.w-block h2 {
+  margin: 1rem 0;
+}
+.w-link {
+  margin: 1.5rem 0;
+}
+.w-link a {
+  margin: 0 1rem 0 0;
+  display: inline;
+  text-align: center;
+}
