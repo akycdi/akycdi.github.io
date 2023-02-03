@@ -1,0 +1,62 @@
+/* CSS styles for the articles container */
+#articles-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* CSS styles for the individual articles */
+.article {
+  width: 25%; /* adjust as per your need*/
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* CSS styles for the article's title */
+.article h3 {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+/* CSS styles for the article's image */
+.article img {
+  width: 100%;
+}
+/* CSS styles for the article's description */
+.article p {
+  width: 100%;
+  text-align: justify;
+}
+
+/* CSS styles for the search bar */
+#search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* CSS styles for the search input */
+#search-input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+/* CSS styles for the search button */
+#search-button , #show-all-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+

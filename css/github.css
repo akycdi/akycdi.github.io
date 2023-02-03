@@ -1,0 +1,70 @@
+#carousel-container {
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#carousel {
+  position: relative;
+  width: 80%;
+  height: 500px;
+  overflow: hidden;
+}
+
+#carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: slide 15s infinite;
+}
+
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  100% {
+    left: -300%;
+  }
+}
+
+.cardStyle{
+  height: 200px;
+  margin: 20px;
+
+}
+form {
+  width: 200px;
+  margin: 20px auto;
+  text-align: center;
+}
+input[type="text"] {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type="submit"] {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+}
