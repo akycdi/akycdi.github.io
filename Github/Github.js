@@ -1,7 +1,7 @@
-const _ = require('lodash');
 
+import _ from 'lodash';
 const fetchRepoData = (repo) => {
-  var data = {key: 'a720778ddde2c87f0e92572e2c42bdc0', q: repo.html_url};
+  var data = { key: 'a720778ddde2c87f0e92572e2c42bdc0', q: repo.html_url };
 
   fetch('https://api.linkpreview.net', {
     method: 'POST',
