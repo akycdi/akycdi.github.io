@@ -1,46 +1,13 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+  <html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   </head>
   <body>
-  <section class="section">
     <div class="container">
-      <div class="box" style="width:300px">
-        <img id="myimage" src="">
-        <div class="is-clipped">
-          <div id="mytitle" class="has-text-weight-bold"></div>
-          <div id="mydescription" class="mt-2"></div>
-          <div id="myurl" class="mt-2 is-size-7"></div>
-        </div>
-      </div>
     </div>
-  </section>
-
-  <script>
-   fetch(`https://api.github.com/users/akycdi/repos`)
-  .then(response => response.json())
-  .then(repos => {
-    repos.forEach(repo => {
-      var data = {key: 'a720778ddde2c87f0e92572e2c42bdc0', q: repo.html_url};
-
-      fetch('https://api.linkpreview.net', {
-        method: 'POST',
-        mode: 'cors',
-        body: JSON.stringify(data),
-      })
-        .then(res => res.json())
-        .then(response => {
-          document.getElementById("mytitle").innerHTML = response.title;
-          document.getElementById("mydescription").innerHTML = response.description;
-          document.getElementById("myimage").src = response.image;
-          document.getElementById("myurl").innerHTML = response.url;
-          document.getElementById("myurl").href = response.url;
-        });
-    });
-  });
-  </script>
+    <script src="/Github/Github.js"></script>
   </body>
 </html>

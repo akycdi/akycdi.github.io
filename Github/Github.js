@@ -1,58 +1,61 @@
-const currentReposDiv = document.getElementById("currentRepos");
-const form = document.getElementById("form");
-const input = document.getElementById("username");
-var currentUser = 'akycdi';
+const _ = require('lodash');
 
+const fetchRepoData = (repo) => {
+  var data = {key: 'a720778ddde2c87f0e92572e2c42bdc0', q: repo.html_url};
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  currentUser = input.value;
-  getRepos(currentUser)
-  displayRepos(currentUser);
-});
+  fetch('https://api.linkpreview.net', {
+    method: 'POST',
+    mode: 'cors',
+    body: JSON.stringify(data),
+  })
+    .then(res => res.json())
+    .then(response => {
+      const container = document.createElement('div');
+      container.classList.add('container');
 
-async function getRepos(username) {
+      const box = document.createElement('div');
+      box.classList.add('box');
+      box.style.width = '300px';
+      container.appendChild(box);
 
-  try {
+      const image = document.createElement('img');
+      image.id = 'myimage';
+      image.src = response.image;
+      box.appendChild(image);
 
-    var response = await fetch(`https://api.github.com/users/${username}/repos`);
-    return await response.json();
-  }
-  catch (error) {
-    if (error.status === 404) {
-      alert(`Username ${username} not found`);
-    } else {
-      console.log(error);
-    }
-  }
-}
+      const content = document.createElement('div');
+      content.classList.add('is-clipped');
+      box.appendChild(content);
 
+      const title = document.createElement('div');
+      title.id = 'mytitle';
+      title.classList.add('has-text-weight-bold');
+      title.innerHTML = response.title;
+      content.appendChild(title);
 
-async function displayRepos(username) {
-  const repos = await getRepos(username);
-  var cardContainer = document.getElementById('cardcontainer');
-  
-}
+      const description = document.createElement('div');
+      description.id = 'mydescription';
+      description.classList.add('mt-2');
+      description.innerHTML = response.description;
+      content.appendChild(description);
 
+      const link = document.createElement('a');
+      link.id = 'myurl';
+      link.classList.add('mt-2', 'is-size-7');
+      link.innerHTML = response.url;
+      link.href = response.url;
+      content.appendChild(link);
 
+      document.body.appendChild(container);
+    });
+};
 
-const carousel = document.querySelector("#carousel");
-const images = carousel.querySelectorAll("img");
-let currentImageIndex = 0;
-
-setInterval(() => {
-  images.forEach((image, index) => {
-    if (index === currentImageIndex) {
-      image.style.display = "block";
-    } else {
-      image.style.display = "none";
-    }
+fetch(`https://api.github.com/users/akycdi/repos`)
+  .then(response => response.json())
+  .then(repos => {
+    _.throttle(() => {
+      repos.forEach(repo => {
+        fetchRepoData(repo);
+      });
+    }, 1000);
   });
-
-  currentImageIndex = currentImageIndex + 1 === images.length ? 0 : currentImageIndex + 1;
-}, 5000);
-
-
-window.addEventListener("load", function () {
-  displayRepos(currentUser);
-});
