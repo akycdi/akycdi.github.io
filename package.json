@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "link-preview-js": "^3.0.4",
     "lodash": "^4.17.21",
     "node-fetch": "^3.3.0"
   }
